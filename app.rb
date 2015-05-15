@@ -17,3 +17,4 @@ delete('/band/:id') do
   @band.delete()
   @bands = Band.all
 redirect to ('/bands')
+end

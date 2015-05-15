@@ -25,8 +25,8 @@ end
 
 post('/venues') do
   name = params.fetch("name")
-  new_venue = Venue.create({:name => name})
-  if new_venue.save()
+  @venue = Venue.create({:name => name})
+  if @venue.save()
     redirect to('/bands')
   else
     erb(:errors)
@@ -43,14 +43,14 @@ post('/bands') do
   @bands = Band.all
   name = params.fetch("name")
   venues = params[:venue]
-  new_band = Band.create({:name => name})
+  @band = Band.create({:name => name})
   if venues
   venues.each() do |venue|
     found_venue = Venue.find(venue)
-    new_band.venues.push(found_venue)
+    @band.venues.push(found_venue)
   end
   end
-  if new_band.save()
+  if @band.save()
     erb(:bands)
   else
   erb(:errors)

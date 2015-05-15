@@ -1,8 +1,15 @@
-<h3>Oops there were some errors:</h3>
-<ul>
-  <% @band.errors().full_messages().each() do |message| %>
-    <li><%= message %></li>
+<h3 class="featurette-heading">Uh-Oh, looks like there was an error with your submission:</h3>
+<hr class="featurette-divider">
+<% if @band != nil %>
+  <ul>
+    <% @band.errors().full_messages().each() do |message| %>
+      <li><p class="lead"><%= message %></p></li>
+    <% end %>
+  </ul>
+<% elsif @venue != nil %>
+  <% @venue.errors().full_messages().each() do |message| %>
+    <li><p class="lead"><%= message %></p></li>
   <% end %>
-</ul>
-
-<h5><a href="/" >Return to main page to try again</a></h5>
+<% end %>
+<br><br>
+<h5 class="featurette-subheading"><a href="/" >Don't Fret! Just return to the main page and try again!</a></h5>

@@ -1,3 +1,4 @@
+
 <h1 class="featurette-heading">Edit band <span class="text-muted"><%= @band.name() %></span></h1>
 <hr class="featurette-divider">
 <div class="form">
@@ -18,6 +19,7 @@
   <% else %>
     <p class="lead">It looks like you haven't added any venues to the database. Try <a href="/add_venue">adding a venue</a> before listing a band's played venues.</p>
   <% end %>
+  <br>
   <button class="btn btn-primary btn-md" type="submit">Update Band</button>
   </form>
 </div>

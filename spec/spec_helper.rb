@@ -22,6 +22,5 @@ RSpec.configure do |config|
       venue.destroy()
     end
 
-
   end
 end

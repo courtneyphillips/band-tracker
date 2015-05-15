@@ -1,0 +1,30 @@
+<h1>Add a New Band:</h1>
+
+    <div class="form">
+      <form action='/bands' method= "post">
+        <label for="name">Band Name:</label>
+        <input id="name" name="name" type="text">
+        <label for="category">What the hell kind of food is it?</label>
+        <div id="check_group">
+
+          <% if @venues.any?() %>
+
+            <label for="checkbox">What venue has this band played at?</label>
+
+            <% @venues.each() do |venue| %>
+
+              <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a></input>
+            <% end %>
+
+          <% else %>
+
+            <p>There are currently no venues in the database. Try adding a venue first, and come back</p>
+
+          <% end %>
+
+        </div>
+
+        <button type="submit">Add Band</button>
+
+      </form>
+  </div>

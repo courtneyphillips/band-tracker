@@ -4,7 +4,6 @@ class Band < ActiveRecord::Base
   before_save(:titlecase_name)
 
 
-
 private
 
   def titlecase_name

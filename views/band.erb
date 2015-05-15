@@ -1,6 +1,5 @@
 <h2 class="featurette-heading">The band <span class="text-muted"><%= @band.name %></span></h2>
 <hr class="featurette-divider">
-
 <% if @band.venues.any?() %>
   <h3 class="featurette-subheading">Has played following <span class="text-muted">venues:</span></h3>
   <br>
@@ -13,8 +12,17 @@
   <p class="lead"> We have no recorded venues for this artist! <a href="/bands/<%= @band.id() %>/edit">Update their entry</a> to add new venues.</p>
 <% end %>
 <hr class="featurette-divider">
-<form action="/band/<%= @band.id() %>" method="post">
-  <input name="_method" type="hidden" value="delete"><br>
-  <button type="submit" class="btn btn-danger btn-md">Delete Band</button>
-</form>
-<a class="btn btn-warning btn-md" href="/bands/<%= @band.id() %>/edit">Edit Band Info</a></button>
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <a href="/" button type="button" class="btn btn-primary">Return to Bands</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <a href="/bands/<%= @band.id() %>/edit" button type="button" class="btn btn-warning">Edit/Update Band Info</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <form action="/band/<%= @band.id() %>" method="post">
+      <input name="_method" type="hidden" value="delete">
+    <button type="submit" class="btn btn-danger">Delete Band</button>
+  </form>
+  </div>
+</div>

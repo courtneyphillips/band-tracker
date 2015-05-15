@@ -1,0 +1,10 @@
+
+
+
+
+
+#delete funciton
+<form action="/recipes/<%= @recipe.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete"><br>
+  <button type="submit" class="btn btn-primary btn-md">Delete Recipe</button>
+</form>

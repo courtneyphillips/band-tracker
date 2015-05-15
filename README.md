@@ -24,11 +24,11 @@ Keeping Tabs uses the following gems:
   - PG
 
 -Testing:
-  -RSpec
-  -Pry
-  -Shoulda-Matchers
-  -Capybara
-  -Sholda-Callback-Matchers
+  - RSpec
+  - Pry
+  - Shoulda-Matchers
+  - Capybara
+  - Sholda-Callback-Matchers
 
 To install, run `$ gem install bundle` from the command line while located in the project folder.
 

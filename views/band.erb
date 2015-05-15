@@ -1,11 +1,16 @@
 <h2 class="featurette-heading">The band <span class="text-muted"><%= @band.name %></span></h2>
 <hr class="featurette-divider">
-<h3 class="featurette-subheading">Has played following <span class="text-muted">venues:</span></h3>
-<br>
-<% @band.venues.each do |venue| %>
-  <ul>
-    <li class="lead"><%= venue.name %></li>
-  </ul>
+
+<% if @band.venues.any?() %>
+  <h3 class="featurette-subheading">Has played following <span class="text-muted">venues:</span></h3>
+  <br>
+  <% @band.venues.each do |venue| %>
+    <ul>
+      <li class="lead"><%= venue.name %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p class="lead"> We have no recorded venues for this artist! <a href="/bands/<%= @band.id() %>/edit">Update their entry</a> to add new venues.</p>
 <% end %>
 <hr class="featurette-divider">
 <form action="/band/<%= @band.id() %>" method="post">

@@ -5,11 +5,14 @@
   <input name="_method" type="hidden" value="patch">
   <label for="name"><p class="lead">Band Name:</label>
   <input id="name" name="name" type="text">
-  <label for="checkbox"><p class="lead">Add any additional venues this band has played at:</p></label><br>
+  <% if @venues.any?() %>
+    <label for="checkbox"><p class="lead">Add any additional venues this band has played at:</p></label><br>
     <% @venues.each() do |venue| %>
       <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><%= venue.name() %></a></input><br><br>
     <% end %>
+  <% else %>
+    <p class="lead">It looks like you haven't added any venues to the database. Try <a href="/add_venue">adding a venue</a> before listing a band's played venues.</p>
+  <% end %>
   <button type="submit">Update Band</button>
-
   </form>
 </div>

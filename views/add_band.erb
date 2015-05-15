@@ -13,10 +13,9 @@
           <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><%= venue.name() %></input><br><br>
         <% end %>
       <% else %>
-          <p><em>There are currently no venues in the database. Try adding a venue first, and come back</em></p>
+          <p><em>There are currently no venues in the database.</em></p>
       <% end %>
-      <br>
-      <p class="lead">(You can add even more venues <a href="/add_venue">here</a>!)</p></em>
+      <p class="lead">(You can add more venues <a href="/add_venue">here</a>!)</p></em>
     </div>
     <br>
     <button type="submit">Add Band</button>

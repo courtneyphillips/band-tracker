@@ -1,0 +1,26 @@
+<h1>Edit <%= @band.name() %></h1>
+
+    <div class="form">
+      <form action='/bands/<%= @band.id() %>' method= "post">
+        <input name="_method" type="hidden" value="patch">
+
+        <label for="name">Band Name:</label>
+        <input id="name" name="name" type="text">
+        <label for="category">What the hell kind of food is it?</label>
+        <div id="check_group">
+
+
+            <label for="checkbox">Add any additional venues this band has played at:</label>
+
+            <% @venues.each() do |venue| %>
+
+              <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a></input>
+            <% end %>
+
+            <p>There are currently no venues in the database. Try adding a venue first, and come back</p>
+        </div>
+
+        <button type="submit">Add Band</button>
+
+      </form>
+  </div>

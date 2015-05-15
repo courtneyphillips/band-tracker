@@ -1,10 +1,21 @@
 
 
 
+<h1><%= @band.name %></h1>
+
+<h2>Has played following venues:</h2>
+<% @band.venues.each do |venue| %>
+<ul>
+  <li><%= venue.name %></li>
+</ul>
+<% end %>
 
 
-#delete funciton
 <form action="/band/<%= @band.id() %>" method="post">
   <input name="_method" type="hidden" value="delete"><br>
-  <button type="submit" class="btn btn-primary btn-md">Delete Recipe</button>
+  <button type="submit" class="btn btn-danger btn-md">Delete Band</button>
 </form>
+
+
+
+<button type="submit" class="btn btn-warning btn-md"><a href="/bands/<%= @band.id() %>/edit">Edit Band Info</a></button>

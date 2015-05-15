@@ -8,9 +8,9 @@
     <div id="check_group">
       <% if @venues.any?() %>
         <br><br>
-        <label for="checkbox"><p class="featurette-subheading">What <span class="text-muted">venue(s)</span> has this band played at?</p></label><br><br>
+        <label for="checkbox"><p class="lead">What <span class="text-muted">venue(s)</span> has this band played at?</p></label><br><br>
         <% @venues.each() do |venue| %>
-          <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><%= venue.name() %></input><br><br>
+          <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><strong><%= venue.name() %></strong></input><br><br>
         <% end %>
       <% else %>
           <p><em>There are currently no venues in the database.</em></p>
@@ -18,6 +18,6 @@
       <p class="lead">(You can add more venues <a href="/add_venue">here</a>!)</p></em>
     </div>
     <br>
-    <button type="submit">Add Band</button>
+    <button class="btn btn-md btn-primary" type="submit">Add Band</button>
   </form>
 </div>

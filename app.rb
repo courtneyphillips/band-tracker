@@ -75,11 +75,11 @@ patch('/bands/:id') do
     found_venue = Venue.find(params.fetch("venue"))
     @band.venues.push(found_venue)
   end
-  if params[:name]
-    new_name = params.fetch("name")
-  else
-    new_name = @band.name()
+  if params.fetch("name") != ""
+    name = params.fetch("name")
+  elsif params.fetch("name") == ""
+    name = @band.name()
   end
-    @band.update({:name => new_name})
-    erb(:band)
+  @band.update({:name => name})
+  erb(:band)
 end

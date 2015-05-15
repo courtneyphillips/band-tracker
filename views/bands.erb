@@ -1,9 +1,9 @@
-<h1>All bands</h1>
-
+<h1 class="featurette-heading">All <span class="text-muted">Bands</span></h1>
+<hr class="featurette-divider">
 <% @bands.each do |band| %>
 <ul>
   <li>
-    <a href="/bands/<%= band.id() %>"><%= band.name() %></a>
+    <a href="/bands/<%= band.id() %>"><p class="lead"><%= band.name() %></p></a>
   </li>
 </ul>
 <% end %>

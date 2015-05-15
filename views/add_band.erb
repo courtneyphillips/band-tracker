@@ -1,30 +1,24 @@
-<h1>Add a New Band:</h1>
-
-    <div class="form">
-      <form action='/bands' method= "post">
-        <label for="name">Band Name:</label>
-        <input id="name" name="name" type="text">
-        <label for="category">What the hell kind of food is it?</label>
-        <div id="check_group">
-
-          <% if @venues.any?() %>
-
-            <label for="checkbox">What venue has this band played at?</label>
-
-            <% @venues.each() do |venue| %>
-
-              <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><a href="/venues/<%= venue.id() %>"><%= venue.name() %></a></input>
-            <% end %>
-
-          <% else %>
-
-            <p>There are currently no venues in the database. Try adding a venue first, and come back</p>
-
-          <% end %>
-
-        </div>
-
-        <button type="submit">Add Band</button>
-
-      </form>
-  </div>
+<h1 class="featurette-heading">Add a new <span class="text-muted">Band</span></h1>
+<hr class="featurette-divider">
+<div class="form">
+  <form action='/bands' method= "post">
+    <label for="name"><p class="lead">Band Name:</p></label>
+    <input id="name" name="name" type="text">
+    <br>
+    <div id="check_group">
+      <% if @venues.any?() %>
+        <br><br>
+        <label for="checkbox"><p class="featurette-subheading">What <span class="text-muted">venue(s)</span> has this band played at?</p></label><br><br>
+        <% @venues.each() do |venue| %>
+          <input type="checkbox" name="venue[]" value="<%= venue.id() %>"><%= venue.name() %></input><br><br>
+        <% end %>
+      <% else %>
+          <p><em>There are currently no venues in the database. Try adding a venue first, and come back</em></p>
+      <% end %>
+      <br>
+      <p class="lead">(You can add even more venues <a href="/add_venue">here</a>!)</p></em>
+    </div>
+    <br>
+    <button type="submit">Add Band</button>
+  </form>
+</div>

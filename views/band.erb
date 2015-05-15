@@ -1,21 +1,15 @@
-
-
-
-<h1><%= @band.name %></h1>
-
-<h2>Has played following venues:</h2>
+<h2 class="featurette-heading">The band <span class="text-muted"><%= @band.name %></span></h2>
+<hr class="featurette-divider">
+<h3 class="featurette-subheading">Has played following <span class="text-muted">venues:</span></h3>
+<br>
 <% @band.venues.each do |venue| %>
-<ul>
-  <li><%= venue.name %></li>
-</ul>
+  <ul>
+    <li class="lead"><%= venue.name %></li>
+  </ul>
 <% end %>
-
-
+<hr class="featurette-divider">
 <form action="/band/<%= @band.id() %>" method="post">
   <input name="_method" type="hidden" value="delete"><br>
   <button type="submit" class="btn btn-danger btn-md">Delete Band</button>
 </form>
-
-
-
 <button type="submit" class="btn btn-warning btn-md"><a href="/bands/<%= @band.id() %>/edit">Edit Band Info</a></button>
